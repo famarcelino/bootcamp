@@ -23,7 +23,7 @@ const Navbar = () => (
                 </li>
                 <li>
                     <NavLink to="/admin" activeClassName="active">
-                        ADMIN
+                            ADMIN
                     </NavLink>
                 </li>
             </ul>
