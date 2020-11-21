@@ -77,7 +77,7 @@ const Login = () => {
                     )}
                 </div>
 
-                <Link to="/admin/auth/recover" className="login-link-recover">
+                <Link to="/auth/recover" className="login-link-recover">
                     Esqueci a senha?
                 </Link>
                 <div className="login-submit">
@@ -86,7 +86,7 @@ const Login = () => {
             </form>
             <div className="text-center">
                 <span className="not-registered">Não tem Cadastro?</span>
-                <Link to="/admin/auth/register" className="login-link-register">CADASTRAR</Link>
+                <Link to="/auth/register" className="login-link-register">CADASTRAR</Link>
             </div>
         </AuthCard>
     );
