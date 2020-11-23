@@ -3,7 +3,6 @@ import { Product, ProductsResponse } from 'core/types/Product';
 import { makeRequest } from 'core/utils/request';
 import { useHistory } from 'react-router-dom';
 import Card from '../Card';
-import './styles.scss';
 import Pagination from 'core/components/Pagination';
 
 const List = () => {
@@ -12,12 +11,12 @@ const List = () => {
     const [activePage, setActivePage] = useState(0);
     const history = useHistory();
 
-    console.log(productsResponse);
-
     useEffect(() => {
         const params = {
             page: activePage,
-            linesPerPage: 4
+            linesPerPage: 4,
+            direction: 'DESC',
+            orderBy: 'id'
         }
         setIsLoading(true);
         makeRequest({ url: '/products', params })
