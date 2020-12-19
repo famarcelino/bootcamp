@@ -1,6 +1,7 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
 const devideWidth = Dimensions.get('window').width;
+const deviceHeight = Dimensions.get('window').height;
 
 const colors = {
     white: "#FFFFFF",
@@ -88,11 +89,29 @@ const text = StyleSheet.create({
         fontWeight: "bold",
         color: colors.red,
     },
+    saveText: {
+        textTransform: "uppercase",
+        fontWeight: "bold",
+        color: colors.white,
+    },
     editText: {
         textTransform: "uppercase",
         fontWeight: "bold",
         color: colors.mediumGray,
     },
+    uploadText: {
+        color: colors.white,
+        textTransform: "uppercase",
+        fontWeight: "bold",
+    },
+    fileSize: {
+        color: colors.primary,
+        fontSize: 10,
+        fontWeight: "300",
+        marginVertical: 5,
+        padding: 2,
+    },
+    
 });
 
 const theme = StyleSheet.create({
@@ -300,6 +319,103 @@ const theme = StyleSheet.create({
         height: 40,
         borderWidth: 1,
         borderColor: colors.mediumGray,
+        marginVertical: 10,
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: 10,
+    },
+    // Admin Products Form
+    formContainer: {
+        width: devideWidth,
+        padding: 20,
+    },
+    formCard: {
+        width: "100%",
+        height: "90%",
+        backgroundColor: colors.white,
+        borderRadius: 20,
+        padding: 20,
+        shadowColor: colors.black,
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        alignItems: "center",
+        justifyContent: "space-around",
+    },
+    modalContainer: {
+        width: devideWidth,
+        height: deviceHeight,
+        backgroundColor: "#00000033",
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    modalContent: {
+        width: 300,
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: "50%",
+        backgroundColor: colors.white,
+        borderRadius: 20,
+        padding: 20,
+        shadowColor: colors.black,
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
+    modalItem: {
+        width: "100%",
+        backgroundColor: colors.lightGray,
+        padding: 10,
+        marginVertical: 5,
+        borderRadius: 5,
+    },
+    formInput: {
+        width: "100%",
+        height: 50,
+        borderWidth: 1,
+        borderColor: colors.mediumGray,
+        borderRadius: 10,
+        padding: 10,
+        marginVertical: 10,
+    },
+    textArea: {
+        width: "100%",
+        height: 200,
+        borderWidth: 1,
+        borderColor: colors.mediumGray,
+        borderRadius: 10,
+        padding: 10,
+        marginVertical: 15,
+    },
+    selectInput: {
+        width: "100%",
+        height: 50,
+        borderWidth: 1,
+        borderColor: colors.mediumGray,
+        borderRadius: 10,
+        padding: 10,
+        justifyContent: "center",
+
+    },
+    uploadBtn: {
+        width: "100%",
+        height: 40,
+        backgroundColor: colors.mediumGray,
+        borderRadius: 5,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    saveBtn: {
+        width: "48%",
+        height: 40,
+        backgroundColor: colors.primary,
         marginVertical: 10,
         alignItems: "center",
         justifyContent: "center",
