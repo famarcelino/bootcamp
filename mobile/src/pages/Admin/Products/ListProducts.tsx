@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Text, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { SearchInput, ProductCard } from '../../../components';
-import { getProducts } from '../../../services';
+import { deleteProduct, getProducts } from '../../../services';
 import { admin, text } from '../../../styles';
 
 interface ProductProps {
     setScreen: Function;
+    setProductId: Function;
 };
 
 const Products: React.FC<ProductProps> = (props) => {
@@ -13,7 +14,18 @@ const Products: React.FC<ProductProps> = (props) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const {setScreen} = props;
+    const { setScreen, setProductId } = props;
+
+    async function handleDelete(id: number) {
+        setLoading(true);
+        const res = await deleteProduct(id);
+        fillProducts();
+    };
+
+    function handleEdit(id: number) {
+        setProductId(id);
+        setScreen("editProduct");
+    };
 
     async function fillProducts() {
         setLoading(true);
@@ -38,9 +50,18 @@ const Products: React.FC<ProductProps> = (props) => {
             <SearchInput search={search} setSearch={setSearch} placeholder="Nome do produto" />
             {loading ? (
                 <ActivityIndicator size="large" />
-            ) : (data.map((product) => (
-                <ProductCard {...product} key={product.id} role="admin" />
-            )))
+            ) : (data.map((product) => {
+                const { id } = product;
+                return (
+                    <ProductCard
+                        {...product} 
+                        key={id} 
+                        role="admin" 
+                        handleDelete={handleDelete}
+                        handleEdit={handleEdit}
+                    />
+                )
+            }))
             }
         </ScrollView>
     );
